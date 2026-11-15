@@ -1,0 +1,13 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>avel browser harness</title>
+  </head>
+  <body>
+    <script type="module">
+      const script = new URLSearchParams(location.search).get("script");
+      await import(`./.build/${script}`);
+    </script>
+  </body>
+</html>

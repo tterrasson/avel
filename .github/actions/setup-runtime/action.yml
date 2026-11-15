@@ -1,0 +1,20 @@
+name: Set up avel runtime
+description: Install the shared compiler and runtime toolchain with locked dependencies
+runs:
+  using: composite
+  steps:
+    - uses: dtolnay/rust-toolchain@stable
+      with:
+        targets: wasm32-unknown-unknown
+    - uses: oven-sh/setup-bun@v2
+      with:
+        bun-version-file: package.json
+    - name: Install matching wasm-bindgen CLI
+      shell: bash
+      run: cargo install wasm-bindgen-cli --version 0.2.130 --locked
+    - name: Install runtime dependencies
+      shell: bash
+      run: bun install --frozen-lockfile
+    - name: Build Wasm modules
+      shell: bash
+      run: bun run build:wasm

@@ -1,0 +1,234 @@
+{
+  "resnet18": {
+    "ops": [
+      "aten._native_batch_norm_legit_no_training.default",
+      "aten.add.Tensor",
+      "aten.addmm.default",
+      "aten.convolution.default",
+      "aten.max_pool2d_with_indices.default",
+      "aten.mean.dim",
+      "aten.permute.default",
+      "aten.relu.default",
+      "aten.view.default"
+    ],
+    "unsupported": [],
+    "supported": 1.0
+  },
+  "mobilenet_v3_small": {
+    "ops": [
+      "aten._native_batch_norm_legit_no_training.default",
+      "aten.add.Tensor",
+      "aten.addmm.default",
+      "aten.clamp.default",
+      "aten.convolution.default",
+      "aten.div.Tensor",
+      "aten.mean.dim",
+      "aten.mul.Tensor",
+      "aten.permute.default",
+      "aten.relu.default",
+      "aten.view.default"
+    ],
+    "unsupported": [],
+    "supported": 1.0
+  },
+  "efficientnet_b0": {
+    "ops": [
+      "aten._native_batch_norm_legit_no_training.default",
+      "aten.add.Tensor",
+      "aten.addmm.default",
+      "aten.convolution.default",
+      "aten.mean.dim",
+      "aten.mul.Tensor",
+      "aten.permute.default",
+      "aten.sigmoid.default",
+      "aten.view.default"
+    ],
+    "unsupported": [],
+    "supported": 1.0
+  },
+  "squeezenet1_1": {
+    "ops": [
+      "aten.cat.default",
+      "aten.convolution.default",
+      "aten.max_pool2d_with_indices.default",
+      "aten.mean.dim",
+      "aten.relu.default",
+      "aten.view.default"
+    ],
+    "unsupported": [],
+    "supported": 1.0
+  },
+  "shufflenet_v2_x0_5": {
+    "ops": [
+      "aten._native_batch_norm_legit_no_training.default",
+      "aten.addmm.default",
+      "aten.cat.default",
+      "aten.clone.default",
+      "aten.convolution.default",
+      "aten.max_pool2d_with_indices.default",
+      "aten.mean.dim",
+      "aten.permute.default",
+      "aten.relu.default",
+      "aten.split_with_sizes.default",
+      "aten.view.default"
+    ],
+    "unsupported": [],
+    "supported": 1.0
+  },
+  "regnet_y_400mf": {
+    "ops": [
+      "aten._native_batch_norm_legit_no_training.default",
+      "aten.add.Tensor",
+      "aten.addmm.default",
+      "aten.convolution.default",
+      "aten.mean.dim",
+      "aten.mul.Tensor",
+      "aten.permute.default",
+      "aten.relu.default",
+      "aten.sigmoid.default",
+      "aten.view.default"
+    ],
+    "unsupported": [],
+    "supported": 1.0
+  },
+  "convnext_tiny": {
+    "ops": [
+      "aten.add.Tensor",
+      "aten.addmm.default",
+      "aten.as_strided.default",
+      "aten.convolution.default",
+      "aten.gelu.default",
+      "aten.mean.dim",
+      "aten.mul.Tensor",
+      "aten.native_layer_norm.default",
+      "aten.permute.default",
+      "aten.view.default"
+    ],
+    "unsupported": [
+      "aten.as_strided.default"
+    ],
+    "supported": 0.9
+  },
+  "lraspp_mobilenet_v3_large": {
+    "ops": [
+      "aten._native_batch_norm_legit_no_training.default",
+      "aten.add.Tensor",
+      "aten.clamp.default",
+      "aten.convolution.default",
+      "aten.div.Tensor",
+      "aten.mean.dim",
+      "aten.mul.Tensor",
+      "aten.relu.default",
+      "aten.sigmoid.default",
+      "aten.upsample_bilinear2d.vec"
+    ],
+    "unsupported": [],
+    "supported": 1.0
+  },
+  "llama_block": {
+    "ops": [
+      "aten._to_copy.default",
+      "aten.add.Tensor",
+      "aten.arange.start_step",
+      "aten.cat.default",
+      "aten.cos.default",
+      "aten.div.Tensor",
+      "aten.mm.default",
+      "aten.mul.Tensor",
+      "aten.neg.default",
+      "aten.permute.default",
+      "aten.pow.Scalar",
+      "aten.reciprocal.default",
+      "aten.repeat.default",
+      "aten.rms_norm.default",
+      "aten.scaled_dot_product_attention.default",
+      "aten.sigmoid.default",
+      "aten.sin.default",
+      "aten.slice.Tensor",
+      "aten.squeeze.dims",
+      "aten.unsqueeze.default",
+      "aten.view.default"
+    ],
+    "unsupported": [],
+    "supported": 1.0
+  },
+  "bert_encoder": {
+    "ops": [
+      "aten._softmax.default",
+      "aten._to_copy.default",
+      "aten.add.Tensor",
+      "aten.addmm.default",
+      "aten.bitwise_not.default",
+      "aten.bmm.default",
+      "aten.clamp.default",
+      "aten.clone.default",
+      "aten.cumsum.default",
+      "aten.embedding.default",
+      "aten.expand.default",
+      "aten.full_like.default",
+      "aten.native_layer_norm.default",
+      "aten.permute.default",
+      "aten.relu.default",
+      "aten.scalar_tensor.default",
+      "aten.scaled_dot_product_attention.default",
+      "aten.select.int",
+      "aten.squeeze.dims",
+      "aten.sub.Tensor",
+      "aten.unsqueeze.default",
+      "aten.view.default",
+      "aten.where.self"
+    ],
+    "unsupported": [],
+    "supported": 1.0
+  },
+  "tiny_unet": {
+    "ops": [
+      "aten.cat.default",
+      "aten.convolution.default",
+      "aten.mul.Tensor",
+      "aten.native_group_norm.default",
+      "aten.pad.default",
+      "aten.sigmoid.default",
+      "aten.upsample_nearest2d.vec"
+    ],
+    "unsupported": [],
+    "supported": 1.0
+  },
+  "hf_bert_tiny": {
+    "ops": [
+      "aten.add.Tensor",
+      "aten.addmm.default",
+      "aten.arange.start_step",
+      "aten.embedding.default",
+      "aten.expand.default",
+      "aten.gather.default",
+      "aten.ge.Scalar",
+      "aten.gelu.default",
+      "aten.native_layer_norm.default",
+      "aten.permute.default",
+      "aten.scaled_dot_product_attention.default",
+      "aten.slice.Tensor",
+      "aten.unsqueeze.default",
+      "aten.view.default"
+    ],
+    "unsupported": [],
+    "supported": 1.0
+  },
+  "timm_mobilenetv3_small_050": {
+    "ops": [
+      "aten._native_batch_norm_legit_no_training.default",
+      "aten.add.Tensor",
+      "aten.addmm.default",
+      "aten.clamp.default",
+      "aten.convolution.default",
+      "aten.div.Tensor",
+      "aten.mean.dim",
+      "aten.mul.Tensor",
+      "aten.permute.default",
+      "aten.relu.default",
+      "aten.view.default"
+    ],
+    "unsupported": [],
+    "supported": 1.0
+  }
+}

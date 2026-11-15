@@ -1,0 +1,23 @@
+[package]
+name = "avel-compiler"
+description = "Graph compiler for the avel WebGPU inference runtime"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+readme.workspace = true
+
+[features]
+cpu = []
+# Generates TypeScript definitions and wasm ABI glue for the public types.
+ts = ["dep:tsify", "dep:wasm-bindgen"]
+
+[dependencies]
+serde.workspace = true
+thiserror.workspace = true
+tsify = { workspace = true, optional = true }
+wasm-bindgen = { workspace = true, optional = true }
+
+[dev-dependencies]
+naga = { version = "30.0", features = ["wgsl-in"] }
+serde_json.workspace = true

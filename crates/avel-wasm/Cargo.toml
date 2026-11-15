@@ -1,0 +1,22 @@
+[package]
+name = "avel-wasm"
+description = "WebAssembly bindings for the avel compiler"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+publish = false
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[features]
+default = ["webgpu"]
+webgpu = []
+cpu = ["avel-compiler/cpu", "dep:serde"]
+
+[dependencies]
+avel-compiler = { workspace = true, features = ["ts"] }
+serde = { workspace = true, optional = true }
+tsify.workspace = true
+wasm-bindgen.workspace = true

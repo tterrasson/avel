@@ -1,0 +1,32 @@
+{
+  "name": "@avel/runtime",
+  "version": "0.1.0",
+  "description": "WebGPU inference runtime for small PyTorch networks",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tterrasson/avel.git",
+    "directory": "packages/runtime"
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": ["dist", "wasm"],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "bun test",
+    "test:browser": "bun browser/run-validation.ts",
+    "bench:browser": "bun browser/run-bench.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.4.4",
+    "@webgpu/types": "^0.1.74",
+    "onnxruntime-web": "^1.31.1",
+    "typescript": "^7.0.2"
+  }
+}

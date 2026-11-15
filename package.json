@@ -1,0 +1,20 @@
+{
+  "name": "avel-workspace",
+  "private": true,
+  "license": "MIT",
+  "packageManager": "bun@1.4.4",
+  "workspaces": ["packages/*"],
+  "scripts": {
+    "build:wasm": "sh scripts/build-wasm.sh",
+    "build": "bun run build:wasm && bun run --filter '@avel/*' build",
+    "test": "bun run --filter '@avel/*' test",
+    "typecheck": "bun run --filter '@avel/*' typecheck",
+    "format": "bun fmt --write 'packages/{runtime,tokenizer}/{src,test,browser}/**/*.ts'",
+    "format:check": "bun fmt --check 'packages/{runtime,tokenizer}/{src,test,browser}/**/*.ts'",
+    "generate:validation": "cd python/avel-export && uv run --locked python -m avel_export.validation ../../packages/runtime/browser/artifacts",
+    "test:browser": "bun run generate:validation && bun run --filter '@avel/runtime' test:browser",
+    "generate:bench": "cd python/avel-export && uv run --locked python -m avel_export.bench ../../packages/runtime/browser/artifacts/bench",
+    "bench": "bun run generate:bench && bun run --filter '@avel/runtime' bench:browser",
+    "bench:history": "bun run build && bun run generate:bench && bun packages/runtime/browser/run-bench.ts --history"
+  }
+}

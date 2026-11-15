@@ -1,0 +1,23 @@
+{
+  "formatVersion": 1,
+  "opset": "core-aten/1",
+  "inputs": [
+    {
+      "name": "x",
+      "dtype": "f32",
+      "shape": [{ "name": "batch", "min": 1, "max": 64 }, 4]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "x",
+      "dtype": "f32",
+      "shape": [{ "name": "batch", "min": 1, "max": 64 }, 4]
+    }
+  ],
+  "nodes": [],
+  "parameters": [],
+  "media": {},
+  "metadata": {},
+  "f16": false
+}

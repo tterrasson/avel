@@ -1,0 +1,213 @@
+{
+  "formatVersion": 1,
+  "opset": "core-aten/1",
+  "inputs": [
+    {
+      "name": "input",
+      "dtype": "f32",
+      "shape": [
+        {
+          "name": "s31",
+          "min": 1,
+          "max": 64
+        },
+        4
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "relu",
+      "dtype": "f32",
+      "shape": [
+        {
+          "name": "s31",
+          "min": 1,
+          "max": 64
+        },
+        2
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "op": "aten.permute.default",
+      "inputs": [
+        "p_0_weight"
+      ],
+      "outputs": [
+        {
+          "name": "permute",
+          "dtype": "f32",
+          "shape": [
+            4,
+            8
+          ]
+        }
+      ],
+      "attributes": {
+        "dims": [
+          1,
+          0
+        ]
+      }
+    },
+    {
+      "op": "aten.addmm.default",
+      "inputs": [
+        "p_0_bias",
+        "input",
+        "permute"
+      ],
+      "outputs": [
+        {
+          "name": "addmm",
+          "dtype": "f32",
+          "shape": [
+            {
+              "name": "s31",
+              "min": 1,
+              "max": 64
+            },
+            8
+          ]
+        }
+      ],
+      "attributes": {
+        "beta": 1,
+        "alpha": 1
+      }
+    },
+    {
+      "op": "aten.gelu.default",
+      "inputs": [
+        "addmm"
+      ],
+      "outputs": [
+        {
+          "name": "gelu",
+          "dtype": "f32",
+          "shape": [
+            {
+              "name": "s31",
+              "min": 1,
+              "max": 64
+            },
+            8
+          ]
+        }
+      ],
+      "attributes": {
+        "approximate": "none"
+      }
+    },
+    {
+      "op": "aten.permute.default",
+      "inputs": [
+        "p_2_weight"
+      ],
+      "outputs": [
+        {
+          "name": "permute_1",
+          "dtype": "f32",
+          "shape": [
+            8,
+            2
+          ]
+        }
+      ],
+      "attributes": {
+        "dims": [
+          1,
+          0
+        ]
+      }
+    },
+    {
+      "op": "aten.addmm.default",
+      "inputs": [
+        "p_2_bias",
+        "gelu",
+        "permute_1"
+      ],
+      "outputs": [
+        {
+          "name": "addmm_1",
+          "dtype": "f32",
+          "shape": [
+            {
+              "name": "s31",
+              "min": 1,
+              "max": 64
+            },
+            2
+          ]
+        }
+      ],
+      "attributes": {
+        "beta": 1,
+        "alpha": 1
+      }
+    },
+    {
+      "op": "aten.relu.default",
+      "inputs": [
+        "addmm_1"
+      ],
+      "outputs": [
+        {
+          "name": "relu",
+          "dtype": "f32",
+          "shape": [
+            {
+              "name": "s31",
+              "min": 1,
+              "max": 64
+            },
+            2
+          ]
+        }
+      ],
+      "attributes": {}
+    }
+  ],
+  "parameters": [
+    {
+      "name": "p_0_weight",
+      "tensor": "0.weight",
+      "dtype": "f32",
+      "shape": [
+        8,
+        4
+      ]
+    },
+    {
+      "name": "p_0_bias",
+      "tensor": "0.bias",
+      "dtype": "f32",
+      "shape": [
+        8
+      ]
+    },
+    {
+      "name": "p_2_weight",
+      "tensor": "2.weight",
+      "dtype": "f32",
+      "shape": [
+        2,
+        8
+      ]
+    },
+    {
+      "name": "p_2_bias",
+      "tensor": "2.bias",
+      "dtype": "f32",
+      "shape": [
+        2
+      ]
+    }
+  ],
+  "media": {},
+  "metadata": {},
+  "f16": false
+}

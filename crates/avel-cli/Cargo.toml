@@ -1,0 +1,17 @@
+[package]
+name = "avel-cli"
+description = "Ahead-of-time plan compiler for avel"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+readme.workspace = true
+
+[[bin]]
+name = "avel"
+path = "src/main.rs"
+
+[dependencies]
+avel-compiler.workspace = true
+clap.workspace = true
+serde_json.workspace = true
